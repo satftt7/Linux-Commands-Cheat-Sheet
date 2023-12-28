@@ -1,0 +1,196 @@
+j4:
+
+cd: change directory
+cd ..: higher directory
+cd -: Previous directory
+cd /: root directory
+pwd: print working directory (path)
+
+/usr/bin: Absolute
+../../usr/bin: relative
+
+shortcut terminal:
+ctl + L: clear
+ctl + D: exit the terminal
+ctl + C: Stop the process
+ctl + H: backspace
+ctl + A: first line
+ctl + E: end line
+ctl + W: remove command before cursor
+ctl + U: Delete commands from the beginning of the cursor line
+tab: auto complete
+
+j5:
+
+.file: hidden directory
+whatis pwd: what is the pwd command
+whoami: the Current user logged into the system
+
+permissions:
+owner-group-others
+
+read > r 4 / write > w 2 / execute > x 1
+
+ls: list
+-a: all files even hidden files
+-i: inode
+-s: block size
+-t: new file
+-r: Descending alphabet
+-R: all dir (shows dir to dir and home)
+-l: detailed
+
+-lh:
+-ld:
+
+? * [] [!]
+
+j6:
+
+mkdir --: make directory
+-p: Create a nested folder
+mkdir dir1 dir2 dir3 ...
+-m640: Custom permissions
+default permissions: rwx r-x r-x
+
+rmdir
+-p
+
+cp file dir
+cp -i file dir (ask overwrites)
+
+cp file dir/file2 (file copy in dir with file2 name)
+
+cp f1 f2 f3 ... dir
+
+cp -R dir1 dir2 (copy dir1 to dir2)
+
+touch file: create new empty file
+touch path/fileName: create file in the specified path
+
+touch fileName: change the file's creation time to now
+
+touch -t 03201600: change the file's creation time to 03/20 16:00
+
+echo ........ > myfile: create file with myfile name and write ...... in the first line
+echo .....  >> myfile: append to myfile's content
+echo string: display string on terminal
+
+cat file: display file
+cat > file
+cat >> f: add new contents to the previous f file
+cat f1 f2: append and display on terminal
+cat f1 f2 > f3: append and save to f3
+cat f1 >> f2: append f1 to f2
+
+ctl + d: exit
+
+cat file: read file contents
+tac file >>:
+
+rm file >> rm file
+-i: ask to remove
+rm -r dir: remove dir
+
+mv file1 file2: change file1 name to file2
+
+mv dir1/dir4 dir2/dir3: move dir4 to dir3
+-i: ask overwrite
+-f: 100% move, does not ask for overwrite
+-n: do not overwrite
+
+mv f1 f2 ... destdir: move
+
+u > owner / g > group / o > others / a > all users
+rwx
+chmod u,g,o,a/+,-,=/r,w,x file/dir
+chmod 777 file/dir
+-R: add permissions to all subcategories file/folder
+
+chown newName file: change the file's owner
+chgrp newName file: change the file's group
+
+j8:
+
+cat
+tac
+less: displays initial content
+head:
+tail: default first 10 lines
+-13: first 13 lines
+more: display page by page
+-5: first 5 lines
++5: from line 5 onwards
+
+sort filename
+-n: numeric order
+-r: reverse
+-u: delete duplicates
+-f: sort without regard to case
+sort -r o output myfile
+
+paste f1 f2: character by character
+paste -d ':' f1 f2: separate with ':'
+
+join: doesn't write repeated columns from both files
+
+j10:
+
+find:
+-maxdepth 2: up to depth 2 (written after specifying the address)
+
+find: lists all dir/files
+
+find /dir -name "gcc"
+-iname: case insensitive
+-type: d->dir , f->normal file , b->block file
+-size: +/-6(c:byte, w:word, b:block, k:kilobyte, M:megabyte, G:gigabyte)
+-o: or
+find -size 5c -o -type b: -o -> or
+and:
+find  -size -5c -size +1c: between 1 and 5 bytes
+
+-link:
+
+find -name fileName -exec cp {} dir \;: copy found files to dir
+{}: refers to the files found
+
+-not: excludes these
+
+-atime 5: 5 days before access
+-mtime 5: 5 days before content change
+-ctime 5: 5 days before file change
+time/min
+
+-inum: inode number
+-perm 766: based on access level
+-links +19: more than 19 links (shortcuts)
+-user:
+-group:
+find /usr -name "gcc" 2> dir/error: save error to dir/error
+
+j11:
+
+wc file: number of lines, words, characters
+-l: lines
+-w: words
+-m: characters
+
+grep: search in text
+grep "dfs" dir/file: looks for the dfs word in the file
+-n: line number
+-v: displays lines not containing the query
+-i: ignores case differences
+
+"^if": if at the beginning of the line
+"if$": if at the end of the line
+"\<f": f at the beginning of a word
+"ts\>": ts at the end of a word
+
+[ab]: a or b
+[a-b]: a to b
+[^ab]: everything except a and b
+"...": each character except Enter
+
+c | c | c | ...: output of each command to the input of the next command
+c | tee myfile | c: makes a copy of its input
